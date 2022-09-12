@@ -14,11 +14,15 @@ const setUps = [
 ];
 
 // 1) Filtrar aquellos setUps que posean mas de 8GB de memoria RAM.
+console.log("---------------------------------------------")
+console.log("------Ejercicio 1------")
 const resultado = setUps.filter( (setUps) => setUps.ram != "Fury 8GB" && setUps.ram != "HyperX 8GB")
 console.log("filter () method: ", resultado)
 
 
 // 2) Aplicar el 15% de descuento en el precio del setUp correspondiente al "processor: ryzen 9 5900X" y mostrar el nuevo "price".
+console.log("---------------------------------------------")
+console.log("------Ejercicio 2------")
 const nuevoArray = setUps.map( (value) => {
     if(value.processor === "ryzen 9 5900X"){
         value.price = value.price - value.price * 0.15
@@ -29,29 +33,39 @@ const nuevoArray = setUps.map( (value) => {
 
 
 // 3) Ordenar de mayor a menor los setUps en funcion de su capacidad de almacenamiento o "storage".
+console.log("----------------------------------------------")
+console.log("------Ejercicio 3------")
 const ordenar = setUps.sort( (firstElement, secondElement) => secondElement.storage - firstElement.storage);
 console.log("sort() method: ", ordenar);
 
 
 // 4) Mostrar por consola solo el valor de la frecuencia de "monitor" de todos los setUps.
+console.log("----------------------------------------------")
+console.log("------Ejercicio 4------")
 setUps.forEach(hzs => {
     console.log(hzs.monitor)
 });
 
-console.log("-------------------------------------------------")
+
 
 // 5) Venta al por mayor. Calcular el total de todos los precios o "price" multiplicados por 5.
+console.log("----------------------------------------------")
+console.log("------Ejercicio 5------")
 setUps.forEach(hzs => {
     console.log(hzs.price * 5)
 });
 
 
 // 6) Encontrar el setUp cuya "gpu" sea "Radeon RX 6600".
+console.log("----------------------------------------------")
+console.log("------Ejercicio 6------")
 const encontrarGPU = setUps.find( (element) => element.gpu === "Radeon RX 6600");
 console.log("find() method: ", encontrarGPU);
 
 
 // 7) Agregar una nueva propiedad a todos los setUps definida como: "stock: 10".
+console.log("----------------------------------------------")
+console.log("------Ejercicio 7------")
 const mapSetup = setUps.map( (valor) => {
     return{
         processor: valor.processor,
@@ -67,5 +81,15 @@ const mapSetup = setUps.map( (valor) => {
 console.log("map() method: ", mapSetup);
 
 // 8) Filtrar los nuevos setUps del punto 7 cuyo precio sea mayor que 1500 y restar en 2 unidades el stock del setUp cuya gpu sea "RTX 3070 Ti".
-const filtroPrecio = setUps.filter( (element) => element.price >= 1500);
+console.log("----------------------------------------------")
+console.log("------Ejercicio 8------")
+const filtroPrecio = mapSetup.filter( (element) => element.price >= 1500);
 console.log("filter() method: ", filtroPrecio);
+filtroPrecio.forEach( array => {
+    if(array.gpu == "RTX 3070 Ti"){
+        array.stock = array.stock -2
+        console.log(array)
+        
+    }
+    
+});
